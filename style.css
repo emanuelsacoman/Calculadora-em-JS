@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #252525;
+    scale: 1.5;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.fundo{
+    background-color: #252525;
+    height: 100vh;
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.calculadora{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    padding: 15px;
+
+    box-shadow: 15px 15px 18px -10px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 15px 15px 18px -10px rgba(0,0,0,0.69);
+    -moz-box-shadow: 15px 15px 18px -10px rgba(0,0,0,0.69);
+}
+
+.botao{
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 3px;
+    background-color: rgb(31, 31, 31);
+    border: none;
+    color: rgb(255, 255, 255);
+    transition: color 0.1s;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+#off {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.botao:hover{
+    transition: all 0.1s;
+    transition: all 0.5s ease-in-out;
+    background-color: black;
+    text-decoration:none !important;
+	background-image: linear-gradient(-45deg,  #ff0000,  #00ff0d, rgb(0, 102, 255));
+    color: black;
+	background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+	animation: gradient 3s ease infinite;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+#resultado{
+    width: 93%;
+    background-color: rgb(255, 255, 255);
+    height: 30px;
+    margin: 5px;
+    font-size: 25px;
+    color: black;
+    text-align: right;
+    padding: 5px;
+    box-shadow: 18px 18px 18px -14px rgba(0,0,0,0.69) inset;
+    -webkit-box-shadow: 18px 18px 3px -14px rgba(0,0,0,0.69) inset;
+    -moz-box-shadow: 18px 18px 18px -14px rgba(0,0,0,0.69) inset;
+}
+
+a {
+    text-decoration: none;
+}
+
+span {
+    text-decoration:none !important;
+    transition: all 0.5s ease-in-out;
+	background-image: linear-gradient(-45deg,  #ff0000,  #00ff0d, rgb(0, 102, 255));
+    color: black;
+	background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+	animation: gradient 3s ease infinite;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+span:hover {
+    transition: all 0.5s ease-in-out;
+    filter: brightness(2);
+    font-size: larger;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#done {
+    background-color: #00ff0d;
+}
