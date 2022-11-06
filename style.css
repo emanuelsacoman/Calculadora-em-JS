@@ -68,6 +68,7 @@ body {
     cursor: pointer;
 }
 
+
 #resultado{
     width: 93%;
     background-color: rgb(255, 255, 255);
@@ -80,6 +81,15 @@ body {
     box-shadow: 18px 18px 18px -14px rgba(0,0,0,0.69) inset;
     -webkit-box-shadow: 18px 18px 3px -14px rgba(0,0,0,0.69) inset;
     -moz-box-shadow: 18px 18px 18px -14px rgba(0,0,0,0.69) inset;
+    position: relative;
+}
+
+#m {
+    position: absolute;
+    color: BLACK;
+    font-size: small;
+    top: 3px;
+    left: 3px;
 }
 
 a {

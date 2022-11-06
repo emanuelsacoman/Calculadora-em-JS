@@ -1,8 +1,34 @@
 function insert(num)
 {
-    var numero = document.getElementById('resultado').innerHTML;
-    document.getElementById('resultado').innerHTML = numero + num;
+    if (document.getElementById('resultado').innerHTML == "0")
+    {
+        document.getElementById('resultado').innerHTML = num;
+    }
+    else{
+        var numero = document.getElementById('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML = numero + num;
+    }
 }
+
+function raiz()
+{
+    var resultado = document.getElementById('resultado').innerHTML;
+    
+    if(resultado)
+    {
+        resultadoo = Math.sqrt(resultado);
+        document.getElementById('resultado').innerHTML = resultadoo;
+    }
+    if(resultado < 0)
+    {
+        document.getElementById('resultado').innerHTML = "0";
+    }
+    else
+    {
+        document.getElementById('resultado').innerHTML = "0";
+    }
+}
+
 function apagar()
 {
     document.getElementById('resultado').innerHTML = "0";
@@ -26,12 +52,12 @@ function resultado()
     }
     else
     {
-        document.getElementById('resultado').innerHTML = "0"
+        document.getElementById('resultado').innerHTML = "0";
     }
 }
 function off()
 {
-    document.getElementById('resultado').innerHTML = ""
+    document.getElementById('resultado').innerHTML = "";
 }
 
 function mc()
@@ -49,7 +75,8 @@ function mmenos()
 
 function mmais()
 {
-    
+    var armazem = document.getElementById('resultado').innerHTML;
+    alert(armazem);
 }
 raiz()
 {
