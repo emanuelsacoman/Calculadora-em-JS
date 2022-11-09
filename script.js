@@ -10,25 +10,6 @@ function insert(num)
     }
 }
 
-function raiz()
-{
-    var resultado = document.getElementById('resultado').innerHTML;
-    
-    if(resultado)
-    {
-        resultadoo = Math.sqrt(resultado);
-        document.getElementById('resultado').innerHTML = resultadoo;
-    }
-    if(resultado < 0)
-    {
-        document.getElementById('resultado').innerHTML = "0";
-    }
-    else
-    {
-        document.getElementById('resultado').innerHTML = "0";
-    }
-}
-
 function apagar()
 {
     document.getElementById('resultado').innerHTML = "0";
@@ -44,11 +25,50 @@ function resultado()
 {
     var resultado = document.getElementById('resultado').innerHTML;
     
-
+    
     if(resultado)
     {
         document.getElementById('resultado').innerHTML = eval(resultado);
         
+    }
+    else
+    {
+        document.getElementById('resultado').innerHTML = "0";
+    }
+}
+// function invert()
+// {
+//     var resultado = document.getElementById('resultado').innerHTML;
+//     var resultadoo = resultado;
+
+// }
+function porcent()
+{
+    let resultado = document.getElementById('resultado').innerHTML;
+
+    if(resultado)
+    {
+        var resultadoo = resultado/100;
+        document.getElementById('resultado').innerHTML = resultadoo;
+    }
+    else
+    {
+        document.getElementById('resultado').innerHTML = "0";
+    }
+}
+
+function raiz()
+{
+    let resultado = document.getElementById('resultado').innerHTML;
+    
+    if(resultado)
+    {
+        var resultadoo = Math.sqrt(resultado);
+        document.getElementById('resultado').innerHTML = resultadoo;
+    }
+    if(resultado < 0)
+    {
+        document.getElementById('resultado').innerHTML = "0";
     }
     else
     {
@@ -73,16 +93,14 @@ function mmenos()
 
 }
 
-function mmais()
-{
-    var armazem = document.getElementById('resultado').innerHTML;
-    alert(armazem);
-}
-raiz()
-{
-    var resultadoo = document.getElementById('resultado').innerHTML
-
-    resultado = Math.sqrt(resultadoo);
-
-    document.getElementById('resultado').innerHTML = eval(resultado);
-}
+// function mmais()
+// {
+//     var resultado = document.getElementById('resultado').innerHTML;
+//     resultadoo = resultado;
+    
+//     if (resultadoo != 0)
+//     {
+//         document.getElementById('m').innerHTML = "M";
+//         armazem = resultadoo
+//     } 
+// }
