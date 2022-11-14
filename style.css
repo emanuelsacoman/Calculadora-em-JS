@@ -50,7 +50,27 @@ body {
 }
 
 #off {
-    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+#git {
+    text-decoration:none !important;
+    transition: all 0.5s ease-in-out;
+	background-image: linear-gradient(-45deg,  #ff0000,  #00ff0d, rgb(0, 102, 255));
+	background-size: 400% 400%;
+	animation: gradient 3s ease infinite;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 0px 0px 0px 3px rgba(0,0,0,1);
+    -moz-box-shadow: inset 0px 0px 0px 3px rgba(0,0,0,1);
+    box-shadow: inset 0px 0px 0px 3px rgba(0,0,0,1);
+}
+
+#git:hover {
+    transition: all 0.5s ease-in-out;
+    filter: brightness(2);
 }
 
 .botao:hover{

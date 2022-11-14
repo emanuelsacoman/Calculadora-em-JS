@@ -1,3 +1,7 @@
+var expressao ='';
+var memoria = '';
+var resultado = '0';
+
 function insert(num)
 {
     if (document.getElementById('resultado').innerHTML == "0")
@@ -16,12 +20,14 @@ function apagar()
     var resultado = document.getElementById('resultado').innerHTML;
     resultado.shift(0)
 }
+
 function voltar()
 {
     var resultado = document.getElementById('resultado').innerHTML;
     document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
 }
-function resultado()
+
+function resultado(resultado)
 {
     var resultado = document.getElementById('resultado').innerHTML;
     
@@ -36,12 +42,18 @@ function resultado()
         document.getElementById('resultado').innerHTML = "0";
     }
 }
-// function invert()
-// {
-//     var resultado = document.getElementById('resultado').innerHTML;
-//     var resultadoo = resultado;
 
-// }
+function invert()
+{
+    var resultado = document.getElementById('resultado').innerHTML;
+    var resultadoo = resultado;
+
+    resultadoo = resultadoo * -1;
+
+    document.getElementById('resultado').innerHTML = resultadoo;
+
+}
+
 function porcent()
 {
     let resultado = document.getElementById('resultado').innerHTML;
@@ -57,50 +69,53 @@ function porcent()
     }
 }
 
-function raiz()
+function raiz(resultado)
 {
-    let resultado = document.getElementById('resultado').innerHTML;
+    var resultado = document.getElementById('resultado').innerHTML;
     
     if(resultado)
     {
         var resultadoo = Math.sqrt(resultado);
         document.getElementById('resultado').innerHTML = resultadoo;
     }
-    if(resultado < 0)
-    {
-        document.getElementById('resultado').innerHTML = "0";
-    }
     else
     {
         document.getElementById('resultado').innerHTML = "0";
     }
 }
+
 function off()
 {
-    document.getElementById('resultado').innerHTML = "";
+    window.location.reload();
 }
 
 function mc()
 {
-
+    memoria = '';
 }
-function mr()
+
+function mr(resultado,memoria)
 {
-
+    if(memoria != ''){
+        resultado += memoria;
+        document.getElementById('resultado').innerHTML = resultado;
+        document.getElementById('expressao').innerHTML = '';
+     }
 }
-function mmenos()
+
+function mmenos(resultado)
 {
-
+    memoria = memoria - resultado
 }
 
-// function mmais()
-// {
-//     var resultado = document.getElementById('resultado').innerHTML;
-//     resultadoo = resultado;
-    
-//     if (resultadoo != 0)
-//     {
-//         document.getElementById('m').innerHTML = "M";
-//         armazem = resultadoo
-//     } 
-// }
+function mmais(memoria)
+{
+    if(document.getElementById('resultado').innerHTML != ''){
+        document.getElementById('m').innerHTML = 'M';
+        if(memoria != ''){
+           memoria = eval(memoria) + eval(document.getElementById('resultado').innerHTML);
+        }else{
+           memoria = eval(document.getElementById('resultado')).innerHTML;
+        }
+    }
+}
