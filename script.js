@@ -1,121 +1,114 @@
 var expressao ='';
-var memoria = '';
-var resultado = '0';
+var memoria = ''; 
 
-function insert(num)
-{
-    if (document.getElementById('resultado').innerHTML == "0")
-    {
-        document.getElementById('resultado').innerHTML = num;
-    }
-    else{
-        var numero = document.getElementById('resultado').innerHTML;
-        document.getElementById('resultado').innerHTML = numero + num;
-    }
-}
+document.querySelectorAll('.botao').forEach(item => {
+   
+   item.addEventListener('click',event => {
+      
+       switch(item.innerHTML){
 
-function apagar()
-{
-    document.getElementById('resultado').innerHTML = "0";
-    var resultado = document.getElementById('resultado').innerHTML;
-    resultado.shift(0)
-}
+            case 'C':
+            expressao = '';
+            document.getElementById('expressao').innerHTML = "";
+                document.getElementById('resultado').innerHTML = "";
+                break;
 
-function voltar()
-{
-    var resultado = document.getElementById('resultado').innerHTML;
-    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
-}
+            case '+/-':
+                var resultado = document.getElementById('expressao').innerHTML;
+                var resultadoo = resultado;
+            
+                resultadoo = resultadoo * -1;
+            
+                document.getElementById('resultado').innerHTML = resultadoo;
+                break;
 
-function resultado(resultado)
-{
-    var resultado = document.getElementById('resultado').innerHTML;
+            case '%':
+                var resultado = document.getElementById('expressao').innerHTML;
+
+                if(resultado)
+                {
+                    var resultadoo = resultado/100;
+                    document.getElementById('resultado').innerHTML = resultadoo;
+                    document.getElementById('expressao').innerHTML = '';
+                }
+                else
+                {
+                    document.getElementById('resultado').innerHTML = "0";
+                }
+                break;
+
+           case 'OFF':
+              window.location.reload();
+              break;
+            
+           case '√':
+            var resultado = document.getElementById('expressao').innerHTML;
     
-    
-    if(resultado)
-    {
-        document.getElementById('resultado').innerHTML = eval(resultado);
-        
-    }
-    else
-    {
-        document.getElementById('resultado').innerHTML = "0";
-    }
-}
+            if(resultado)
+            {
+                var resultadoo = Math.sqrt(expressao);
+                document.getElementById('resultado').innerHTML = resultadoo;
+                document.getElementById('expressao').innerHTML = '';
+            }
+            else
+            {
+                document.getElementById('resultado').innerHTML = "0";
+                document.getElementById('expressao').innerHTML = '';
+            } 
+            break;
 
-function invert()
-{
-    var resultado = document.getElementById('resultado').innerHTML;
-    var resultadoo = resultado;
-
-    resultadoo = resultadoo * -1;
-
-    document.getElementById('resultado').innerHTML = resultadoo;
-
-}
-
-function porcent()
-{
-    let resultado = document.getElementById('resultado').innerHTML;
-
-    if(resultado)
-    {
-        var resultadoo = resultado/100;
-        document.getElementById('resultado').innerHTML = resultadoo;
-    }
-    else
-    {
-        document.getElementById('resultado').innerHTML = "0";
-    }
-}
-
-function raiz(resultado)
-{
-    var resultado = document.getElementById('resultado').innerHTML;
-    
-    if(resultado)
-    {
-        var resultadoo = Math.sqrt(resultado);
-        document.getElementById('resultado').innerHTML = resultadoo;
-    }
-    else
-    {
-        document.getElementById('resultado').innerHTML = "0";
-    }
-}
-
-function off()
-{
-    window.location.reload();
-}
-
-function mc()
-{
-    memoria = '';
-}
-
-function mr(resultado,memoria)
-{
-    if(memoria != ''){
-        resultado += memoria;
-        document.getElementById('resultado').innerHTML = resultado;
-        document.getElementById('expressao').innerHTML = '';
-     }
-}
-
-function mmenos(resultado)
-{
-    memoria = memoria - resultado
-}
-
-function mmais(memoria)
-{
-    if(document.getElementById('resultado').innerHTML != ''){
-        document.getElementById('m').innerHTML = 'M';
-        if(memoria != ''){
-           memoria = eval(memoria) + eval(document.getElementById('resultado').innerHTML);
-        }else{
-           memoria = eval(document.getElementById('resultado')).innerHTML;
-        }
-    }
-}
+            case 'CE': // bug (não apaga de verdade)
+                var resultado = document.getElementById('expressao').innerHTML;
+                document.getElementById('expressao').innerHTML = resultado.substring(0, resultado.length -1);
+                break; 
+           case '=':
+              document.getElementById('resultado').innerHTML = document.getElementById('resultado').innerHTML + ' = ';
+              document.getElementById('resultado').innerHTML = eval(expressao);
+              expressao = '';
+              document.getElementById('expressao').innerHTML = '';
+           break;
+           case 'MC':
+               memoria = '';
+               document.getElementById('m').innerHTML = "";
+           break;
+           case 'MR':
+               if(memoria != ''){
+                  expressao += memoria;
+                   document.getElementById('resultado').innerHTML = '';
+                   document.getElementById('resultado').innerHTML = expressao;
+               }
+           break;
+            case 'M-':
+                var mmenos = document.getElementById('resultado').innerHTML;
+                memoria = memoria - mmenos;
+                if(memoria != ''){
+                    document.getElementById('m').innerHTML = "M";
+                    if(memoria != ''){
+                        memoria = eval(document.getElementById('resultado')).innerHTML;
+                     }else{
+                        memoria = eval(document.getElementById('resultado')).innerHTML;
+                     }
+                }
+                
+            break;
+           case 'M+':
+               if(document.getElementById('resultado').innerHTML != ''){
+                    document.getElementById('m').innerHTML = "M";
+                  
+                   if(memoria != ''){
+                      memoria = eval(memoria) + eval(document.getElementById('resultado').innerHTML);
+                   }else{
+                      memoria = eval(document.getElementById('resultado')).innerHTML;
+                   }
+                  
+               }
+           break;
+           default:
+               expressao += item.innerHTML;
+               document.getElementById('resultado').innerHTML = '';
+               document.getElementById('expressao').innerHTML = expressao;
+       }
+       
+   });
+   
+});    

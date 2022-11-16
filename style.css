@@ -104,19 +104,27 @@ body {
     position: relative;
 }
 
+#expressao {
+    position: absolute;
+    color: black;
+    top: 70px;
+    left: 35px;
+    font-size: 25px;
+}
+
 #m {
     position: absolute;
-    color: BLACK;
+    color: black;
     font-size: small;
-    top: 3px;
-    left: 3px;
+    top: 65px;
+    left: 22px;
 }
 
 a {
     text-decoration: none;
 }
 
-span {
+span.nome {
     text-decoration:none !important;
     transition: all 0.5s ease-in-out;
 	background-image: linear-gradient(-45deg,  #ff0000,  #00ff0d, rgb(0, 102, 255));
